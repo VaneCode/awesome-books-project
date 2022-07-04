@@ -3,6 +3,9 @@
 // Get DOM elements
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
+const bookFrm = document.querySelector('#bookFrm');
+const bookAuthor = document.querySelector('#bookAuthor');
+const bookTitle = document.querySelector('#bookTitle');
 
 // Data storage
 const books = [
@@ -44,9 +47,18 @@ const generateBookli = (book) => {
   return li;
 };
 
+
 // ---------------------EVENTS-----------------------//
 window.onload = () => {
   books.forEach((book) => {
     booksUl.appendChild(generateBookli(book));
   });
 };
+
+
+bookFrm.addEventListener('click', () =>{
+  preventDefault();
+  
+  const newBook = {};
+
+})
