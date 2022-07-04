@@ -58,7 +58,5 @@ window.onload = () => {
 
 bookFrm.addEventListener('click', () =>{
   preventDefault();
-  
   const newBook = {};
-
 })
