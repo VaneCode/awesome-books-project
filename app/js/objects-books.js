@@ -3,9 +3,6 @@
 // Get DOM elements
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
-const bookFrm = document.querySelector('#bookFrm');
-const bookAuthor = document.querySelector('#bookAuthor');
-const bookTitle = document.querySelector('#bookTitle');
 
 // Data storage
 const books = [
@@ -22,6 +19,8 @@ const books = [
 ];
 
 // --------------------FUNCTIONS-------------------//
+
+//Create a li element for booksUl
 const generateBookli = (book) => {
   // Create DOM elements
   const li = document.createElement('li');
@@ -47,18 +46,53 @@ const generateBookli = (book) => {
   return li;
 };
 
-
-// ---------------------EVENTS-----------------------//
-window.onload = () => {
+//Generate booksUl 
+const generateBooksUl = () => {
+  booksUl.textContent = '';
   books.forEach((book) => {
     booksUl.appendChild(generateBookli(book));
   });
 };
 
+//To add a new book to books array
+const addNewBook = () => {
+  //Get the information from form
+  const bookAuthor = document.querySelector('#bookAuthor').value;
+  const bookTitle = document.querySelector('#bookTitle').value;
+  console.log(bookAuthor);
+  console.log(bookTitle);
+  //Calculate the id
+  const bookId = books.length + 1;
+  console.log(bookId);
 
-bookFrm.addEventListener('click', () =>{
-  preventDefault();
-  
+  //Create a new book object 
   const newBook = {};
+  newBook.id = bookId;
+  newBook.title = bookTitle;
+  newBook.author = bookAuthor;
 
-})
+  console.log(newBook);
+
+  //Add the new book object to books array
+  books.push(newBook);
+  console.log(books);
+
+  //Renderize my booksUl
+  generateBooksUl();
+};
+
+
+
+
+// ---------------------EVENTS-----------------------//
+addBtn.addEventListener('submit', (e) => {
+  // Prevent actual submit
+  e.preventDefault();
+
+  // Call function to add a book
+  addNewBook();
+});
+
+window.onload = () => {
+  generateBooksUl();
+};
