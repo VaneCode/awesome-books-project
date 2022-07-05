@@ -3,6 +3,7 @@
 // Get DOM elements
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
+const bookFrm = document.querySelector('#bookFrm');
 
 // Data storage
 const books = [
@@ -85,7 +86,7 @@ const addNewBook = () => {
 
 
 // ---------------------EVENTS-----------------------//
-addBtn.addEventListener('submit', (e) => {
+addBtn.addEventListener('click', (e) => {
   // Prevent actual submit
   e.preventDefault();
 
