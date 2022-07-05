@@ -3,7 +3,6 @@
 // Get DOM elements
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
-const bookFrm = document.querySelector('#bookFrm');
 
 // Data storage
 let books = [
