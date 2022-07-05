@@ -19,8 +19,6 @@ class BooksDataClass {
     constructor() {
         return [];
     }
-<<<<<<< HEAD
-=======
 
     // Method to add a new book to books array
     addNewBook() {
@@ -53,7 +51,6 @@ class BooksDataClass {
         localStorage.setItem('books', JSON.stringify(this));
         //generateBooksUl();
     }
->>>>>>> f260bcf72f19fe9f2e45170c74c1eb7f4fe38340
 }
 
 let books = new BooksDataClass();

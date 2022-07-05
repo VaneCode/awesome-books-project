@@ -1,0 +1,9 @@
+#bookUl{
+    border: 0.2rem solid --dark-blue;
+    display: flex;
+    flex-direction: column;
+}
+
+#bookUl li{
+    display: flex;
+}
