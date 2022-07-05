@@ -19,38 +19,6 @@ class BooksDataClass {
     constructor() {
         return [];
     }
-
-    // Method to add a new book to books array
-    addNewBook() {
-        // Get the information from form
-        const bookAuthor = document.querySelector('#bookAuthor').value;
-        const bookTitle = document.querySelector('#bookTitle').value;
-
-        // Calculate the id
-        const lastBook = this[this.length - 1];
-        const bookId = lastBook.id + 1;
-
-        // Create a new book object
-        const newBook = new bookCls(bookId, bookTitle, bookAuthor);
-
-        // Add the new book object to books array
-        this.push(newBook);
-
-        // Local storage
-        localStorage.setItem('books', JSON.stringify(books));
-
-        // Renderize my booksUl
-        //generateBooksUl();
-    }
-
-    //Method to remove a book from the array books
-    removeBook(i) {
-         this.deleteList = new bookCls(bookId, bookTitle, bookAuthor);
-        this.deleteList = this.filter((book) => Number(book.id) !== Number(i));
-        // Local storage
-        localStorage.setItem('books', JSON.stringify(this));
-        //generateBooksUl();
-    }
 }
 
 let books = new BooksDataClass();
@@ -109,8 +77,14 @@ class InterfaceClass {
     // Method to add a new book to the array books
     static addNewBook = () => {
         // Calculate book id
-        const lastBook = books[books.length - 1];
-        const id = lastBook.id + 1;
+        let id = 0;
+        if (books.length > 1) {
+            const lastBook = books[books.length - 1];
+            id = lastBook.id + 1;
+        } else {
+            id = 1;
+        }
+
         // Get book's information from the add-book-frm form
         const title = document.querySelector('#bookTitle').value;
         const author = document.querySelector('#bookAuthor').value;
