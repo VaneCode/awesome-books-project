@@ -49,7 +49,8 @@ class booksDataCls {
 
     //Method to remove a book from the array books
     removeBook(i) {
-        this = this.filter((book) => Number(book.id) !== Number(i));
+         this.deleteList = new bookCls(bookId, bookTitle, bookAuthor);
+        this.deleteList = this.filter((book) => Number(book.id) !== Number(i));
         // Local storage
         localStorage.setItem('books', JSON.stringify(this));
         //generateBooksUl();
