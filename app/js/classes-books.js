@@ -19,6 +19,41 @@ class BooksDataClass {
     constructor() {
         return [];
     }
+<<<<<<< HEAD
+=======
+
+    // Method to add a new book to books array
+    addNewBook() {
+        // Get the information from form
+        const bookAuthor = document.querySelector('#bookAuthor').value;
+        const bookTitle = document.querySelector('#bookTitle').value;
+
+        // Calculate the id
+        const lastBook = this[this.length - 1];
+        const bookId = lastBook.id + 1;
+
+        // Create a new book object
+        const newBook = new bookCls(bookId, bookTitle, bookAuthor);
+
+        // Add the new book object to books array
+        this.push(newBook);
+
+        // Local storage
+        localStorage.setItem('books', JSON.stringify(books));
+
+        // Renderize my booksUl
+        //generateBooksUl();
+    }
+
+    //Method to remove a book from the array books
+    removeBook(i) {
+         this.deleteList = new bookCls(bookId, bookTitle, bookAuthor);
+        this.deleteList = this.filter((book) => Number(book.id) !== Number(i));
+        // Local storage
+        localStorage.setItem('books', JSON.stringify(this));
+        //generateBooksUl();
+    }
+>>>>>>> f260bcf72f19fe9f2e45170c74c1eb7f4fe38340
 }
 
 let books = new BooksDataClass();
