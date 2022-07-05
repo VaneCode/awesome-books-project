@@ -1,1 +1,50 @@
 /*# sourceMappingURL=styles.css.map */
+
+h1{
+    text-align: center;
+}
+
+ul{
+    list-style-type: none;
+    text-align: center;
+}
+
+li div{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+h2{
+    text-align: center;
+}
+
+hr{
+    display: none;
+}
+
+form{
+    text-align: center;
+}
+
+input{
+    display: block;
+    margin: 1rem auto;
+    width: 25rem;
+}
+
+li div p{
+ margin: 0rem 5rem;
+}
+
+li div button{
+    margin-left: 20rem;
+}
+button{
+    color: orange;
+}
+
+#addBtn{
+    margin-left: 22rem;
+}
+
