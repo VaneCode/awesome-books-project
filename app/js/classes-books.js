@@ -1,15 +1,12 @@
 /* eslint-disable max-classes-per-file */
 
-//----------------VARIABLE DECLARAIONS------------------//
-
-// Get DOM elements
+// ---------------------VARIABLES DECLARATION-----------------//
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
 
-//----------------CLASSES-------------------------------//
-class bookCls {
-
-    //Method to create a new book   
+// --------------------CLASSES--------------------------------//
+class BookClass {
+    // Method to create a new book
     constructor(id, title, author) {
         this.id = id;
         this.title = title;
@@ -17,83 +14,109 @@ class bookCls {
     }
 }
 
-class booksDataCls {
-
-    //Method to create an empty array that will contain the books
+class BooksDataClass {
+    // Method to create an array that will contains the books
     constructor() {
         return [];
     }
-
-    // Method to add a new book to books array
-    addNewBook() {
-        // Get the information from form
-        const bookAuthor = document.querySelector('#bookAuthor').value;
-        const bookTitle = document.querySelector('#bookTitle').value;
-
-        // Calculate the id
-        const lastBook = this[this.length - 1];
-        const bookId = lastBook.id + 1;
-
-        // Create a new book object
-        const newBook = new bookCls(bookId, bookTitle, bookAuthor);
-
-        // Add the new book object to books array
-        this.push(newBook);
-
-        // Local storage
-        localStorage.setItem('books', JSON.stringify(books));
-
-        // Renderize my booksUl
-        //generateBooksUl();
-    }
-
-    //Method to remove a book from the array books
-    removeBook(i) {
-        this = this.filter((book) => Number(book.id) !== Number(i));
-        // Local storage
-        localStorage.setItem('books', JSON.stringify(this));
-        //generateBooksUl();
-    }
 }
 
-let books = new booksDataCls();
+let books = new BooksDataClass();
+const book1 = new BookClass(1, 'Lorem ipsum', 'Testeroo Testyy');
+books.push(book1);
+const book2 = new BookClass(2, 'Second book', 'Testeroo Testyy');
+books.push(book2);
 
-class bookDisplay {
 
-    //Method to create a li element for booksUl
-    generateBookli(book) {
-        // Create DOM elements
-        const li = document.createElement('li');
-        const div = document.createElement('div');
+class InterfaceClass {
+    // Method to generate an li element for book ul list
+    static generateBooksLi = (book) => {
+        // Create elements
+        const bookLi = document.createElement('li');
+        const divBook = document.createElement('div');
         const pTitle = document.createElement('p');
         const pAuthor = document.createElement('p');
-        const removeBtn = document.createElement('button');
-        const hr = document.createElement('hr');
+        const btnRemove = document.createElement('button');
+        const hrDeco = document.createElement('hr');
 
-        // Add text
+        // Add text to elements
         pTitle.textContent = `${book.title}`;
         pAuthor.textContent = `${book.author}`;
-        removeBtn.textContent = 'Remove';
-        removeBtn.setAttribute('id', `${book.id}`);
+        btnRemove.textContent = 'Remove';
+        // Add atributes
+        btnRemove.setAttribute('id', `${book.id}`);
 
         // Build li
-        div.appendChild(pTitle);
-        div.appendChild(pAuthor);
-        div.appendChild(removeBtn);
-        div.appendChild(hr);
-        li.appendChild(div);
+        divBook.appendChild(pTitle);
+        divBook.appendChild(pAuthor);
+        divBook.appendChild(btnRemove);
+        divBook.appendChild(hrDeco);
+        bookLi.appendChild(divBook);
 
-        return li;
+        return bookLi;
     }
 
-    //Method to generate booksUl
-    generateBooksUl(){
-        booksUl.textContent = '';
+    // Method to create booksUl
+    static createBooksUl = () => {
+        // Clean bookUl
+        booksUl.textContent = ' ';
+        // Generate ul
         books.forEach((book) => {
-            booksUl.appendChild(generateBookli(book));
+            booksUl.appendChild(InterfaceClass.generateBooksLi(book));
         });
     }
 
+    // Method to remove a book from the array books
+    static removeBook = (i) => {
+        books = books.filter((book) => Number(book.id) !== Number(i));
+        // Local storage
+        localStorage.setItem('books', JSON.stringify(books));
+        InterfaceClass.createBooksUl();
+    }
+
+    // Method to add a new book to the array books
+    static addNewBook = () => {
+        // Calculate book id
+        const lastBook = books[books.length - 1];
+        const id = lastBook.id + 1;
+        // Get book's information from the add-book-frm form
+        const title = document.querySelector('#bookTitle').value;
+        const author = document.querySelector('#bookAuthor').value;
+        // Create new book object
+        const newBook = new BookClass(id, title, author);
+        // Add the new book object to the books array
+        books.push(newBook);
+        // Local storage
+        localStorage.setItem('books', JSON.stringify(books));
+        InterfaceClass.createBooksUl();
+    }
 }
 
-//-----------------EVENTS--------------------------------//
+// -------------------EVENTS-----------------------------------//
+addBtn.addEventListener('click', (e) => {
+    // Prevent actual submit
+    e.preventDefault();
+
+    // Call method to add a book
+    InterfaceClass.addNewBook();
+});
+
+// Add eventListener to btnRemove
+booksUl.addEventListener('click', (e) => {
+    if (e.target.tagName === 'BUTTON') {
+        const { id } = e.target;
+        InterfaceClass.removeBook(id);
+    }
+});
+
+window.addEventListener('load', () => {
+    // Local storage
+    if (localStorage.getItem('books')) {
+        books = JSON.parse(localStorage.getItem('books'));
+    } else {
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    // Create booksUl
+    InterfaceClass.createBooksUl();
+});
