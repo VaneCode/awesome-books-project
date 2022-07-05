@@ -6,7 +6,7 @@ const addBtn = document.querySelector('#addBtn');
 const bookFrm = document.querySelector('#bookFrm');
 
 // Data storage
-const books = [
+let books = [
   {
     id: 1,
     title: 'Lorem ipsum',
@@ -21,7 +21,7 @@ const books = [
 
 // --------------------FUNCTIONS-------------------//
 
-//Create a li element for booksUl
+// Create a li element for booksUl
 const generateBookli = (book) => {
   // Create DOM elements
   const li = document.createElement('li');
@@ -47,7 +47,7 @@ const generateBookli = (book) => {
   return li;
 };
 
-//Generate booksUl 
+// Generate booksUl
 const generateBooksUl = () => {
   booksUl.textContent = '';
   books.forEach((book) => {
@@ -55,37 +55,42 @@ const generateBooksUl = () => {
   });
 };
 
-//To add a new book to books array
+// To add a new book to books array
 const addNewBook = () => {
-  //Get the information from form
+  // Get the information from form
   const bookAuthor = document.querySelector('#bookAuthor').value;
   const bookTitle = document.querySelector('#bookTitle').value;
-  console.log(bookAuthor);
-  console.log(bookTitle);
-  //Calculate the id
-  const bookId = books.length + 1;
-  console.log(bookId);
 
-  //Create a new book object 
+  // Calculate the id
+  const lastBook = books[books.length - 1];
+  const bookId = lastBook.id + 1;
+
+  // Create a new book object
   const newBook = {};
   newBook.id = bookId;
   newBook.title = bookTitle;
   newBook.author = bookAuthor;
 
-  console.log(newBook);
-
-  //Add the new book object to books array
+  // Add the new book object to books array
   books.push(newBook);
-  console.log(books);
 
-  //Renderize my booksUl
+  // Local storage
+  localStorage.setItem('books', JSON.stringify(books));
+
+  // Renderize my booksUl
   generateBooksUl();
 };
 
-
-
+// To remove a book from the array books
+const removeBook = (i) => {
+  books = books.filter((book) => Number(book.id) !== Number(i));
+  // Local storage
+  localStorage.setItem('books', JSON.stringify(books));
+  generateBooksUl();
+};
 
 // ---------------------EVENTS-----------------------//
+
 addBtn.addEventListener('click', (e) => {
   // Prevent actual submit
   e.preventDefault();
@@ -94,6 +99,22 @@ addBtn.addEventListener('click', (e) => {
   addNewBook();
 });
 
-window.onload = () => {
+// Add eventListener to btnRemove
+booksUl.addEventListener('click', (e) => {
+  if (e.target.tagName === 'BUTTON') {
+    const { id } = e.target;
+    removeBook(id);
+  }
+});
+
+window.addEventListener('load', () => {
+  // Local storage
+  if (localStorage.getItem('books')) {
+    books = JSON.parse(localStorage.getItem('books'));
+  } else {
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  // Create booksUl
   generateBooksUl();
-};
+});

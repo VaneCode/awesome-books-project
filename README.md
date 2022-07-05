@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project name
+# AWESOME BOOK
 
-> Project description
+> This is a project to manage (add and remove) a dinamic list of books using HTML, SASS and JavaScript.
 
 ## Built With
 
@@ -10,10 +10,6 @@
 - CSS/SASS
 - Visual Studio
 - JavaScript
-
-## Live Demo
-
-[Live Demo Link](https://vanecode.github.io/art-gallery/)
 
 ## Getting Started
 
@@ -26,13 +22,13 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-- Open the [Repository Link](https://github.com/VaneCode/art-gallery) of this project in GitHub.
+- Open the [Repository Link](https://github.com/VaneCode/awesome-books-project) of this project in GitHub.
 
 ### Install
 
 - Clone the repository on your local machine, using this command:
 
-git clone https://github.com/VaneCode/art-gallery.git
+git clone https://github.com/VaneCode/awesome-books-project.git
 
 
 ## Authors
@@ -44,11 +40,10 @@ git clone https://github.com/VaneCode/art-gallery.git
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/vanessa-bonito-narv%C3%A1ez-6681941b5/)
 
 
-**Author name**
-
-- GitHub: [@githubhandle](https://github.com/VaneCode)
-- Twitter: [@twitterhandle](https://twitter.com/BonitoNarvaez)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/vanessa-bonito-narv%C3%A1ez-6681941b5/)
+👤 **Aneal Laryea**
+* Github: [@aneallaryea](https://github.com/aneallaryea100)
+* LinkdIn: [@aneallaryea](https://www.linkedin.com/in/nii-aneal-84ba7a147)
+* Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 
 ## 🤝 Contributing
 
