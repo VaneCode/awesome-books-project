@@ -33,25 +33,18 @@ class InterfaceClass {
     static generateBooksLi = (book) => {
         // Create elements
         const bookLi = document.createElement('li');
-        const divBook = document.createElement('div');
-        const pTitle = document.createElement('p');
-        const pAuthor = document.createElement('p');
+        const pTitle_Author = document.createElement('p');
         const btnRemove = document.createElement('button');
-        const hrDeco = document.createElement('hr');
 
         // Add text to elements
-        pTitle.textContent = `${book.title}`;
-        pAuthor.textContent = `${book.author}`;
+        pTitle_Author.textContent = '"' + `${book.title}` + '"' + ' by ' + `${book.author}`;
         btnRemove.textContent = 'Remove';
         // Add atributes
         btnRemove.setAttribute('id', `${book.id}`);
 
         // Build li
-        divBook.appendChild(pTitle);
-        divBook.appendChild(pAuthor);
-        divBook.appendChild(btnRemove);
-        divBook.appendChild(hrDeco);
-        bookLi.appendChild(divBook);
+        bookLi.appendChild(pTitle_Author);
+        bookLi.appendChild(btnRemove);
 
         return bookLi;
     }

@@ -32,3 +32,8 @@ body {
 section {
   display: block;
 }
+
+* { 
+  outline: 1px solid red;
+  outline-offset: -1px;
+}

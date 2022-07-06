@@ -11,24 +11,31 @@
 
 <body>
     <header>
-        <h1>All awesome books</h1>
+        <nav>
+            <h1>All awesome books</h1>
+        </nav>        
     </header>
 
     <main>
         <!--Section list books-->
-        <section>
-            <ul id="booksUl">
+        <section id="list-book-section">
+            <div class="div-container">
+                <ul id="booksUl">
 
-            </ul>
+                </ul>
+            </div>
         </section>
+        <hr>
         <!--Section to add books-->
-        <section>
-            <h2>Add a new book</h2>
-            <form action="#" id="bookFrm">
-                <input type="text" id="bookTitle" placeholder="Title">
-                <input type="text" id="bookAuthor" placeholder="Author">
-                <button id="addBtn" type="submit">Add</button>
-            </form>
+        <section id="add-book-section">
+            <div class="div-container">
+                <h2>Add a new book</h2>
+                <form action="#" id="bookFrm">
+                    <input type="text" id="bookTitle" placeholder="Title">
+                    <input type="text" id="bookAuthor" placeholder="Author">
+                    <button id="addBtn" type="submit">Add</button>
+                </form>
+            </div>
         </section>
     </main>
     <footer></footer>
