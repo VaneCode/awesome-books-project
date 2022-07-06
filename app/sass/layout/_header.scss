@@ -12,11 +12,12 @@ nav {
     padding: 0 1rem;
   }
   
-  h1 {
+  #logo{
     display: none;
     text-align: center;
     color: var(--white);
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-top: 1.5rem;
   
     @media all and (min-width: 768px) {
@@ -29,7 +30,7 @@ nav {
     gap: 2rem;
     color: var(--white);
     
-    li{
+    li a{
       text-align: center;
     }
 
