@@ -5,32 +5,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Awesome books</title>
+    <link rel="stylesheet" href="./dist/styles.css">
 </head>
 
 <body>
     <header>
-        <h1>AWESOME BOOKS</h1>
+        <nav>
+            <div>
+                <h1>All awesome books</h1>
+            </div>      
+        </nav>        
     </header>
 
     <main>
         <!--Section list books-->
-        <section>
-            <ul id="booksUl">
+        <section id="list-book-section">
+            <div class="div-container">
+                <ul id="booksUl">
 
-            </ul>
+                </ul>
+            </div>
         </section>
+        <hr>
         <!--Section to add books-->
-        <section>
-            <form action="#" id="bookFrm">
-                <input type="text" id="bookTitle" placeholder="Title">
-                <input type="text" id="bookAuthor" placeholder="Author">
-                <button id="addBtn" type="submit">Add</button>
-            </form>
+        <section id="add-book-section">
+            <div class="div-container">
+                <h2>Add a new book</h2>
+                <form action="#" id="bookFrm">
+                    <input type="text" id="bookTitle" placeholder="Title">
+                    <input type="text" id="bookAuthor" placeholder="Author">
+                    <button id="addBtn" type="submit">Add</button>
+                </form>
+            </div>
         </section>
     </main>
     <footer></footer>
-    <script src="./app/js/objects-books.js"></script>
+    <script src="./app/js/classes-books.js"></script>
 </body>
 
 </html>
