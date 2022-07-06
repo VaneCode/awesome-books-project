@@ -12,10 +12,19 @@
 <body>
     <header>
         <nav>
-            <div>
-                <h1>All awesome books</h1>
-            </div>      
-        </nav>        
+            <h1>All awesome books</h1>
+            <ul id="nav-ul">
+                <li>
+                    <a href="#books-list-section" class="nav-a" id="books">Books</a>
+                </li>
+                <li>
+                    <a href="#new-book-section" id="add-book" class="nav-a">Add new book</a>
+                </li>
+                <li>
+                    <a href="#contact-section" class="nav-a">Contact</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -39,8 +48,31 @@
                 </form>
             </div>
         </section>
+
+        <!--Contact section-->
+        <section id="contact-section" class="hide">
+            <div class="div-container">
+                <h2>Contact information</h2>
+                <p>Do you have any questions or you just want to say Hello? You can reach out to us!</p>
+                <ul>
+                    <li>
+                        <p>E-mail: bookscollections@mail.com</p>
+                    </li>
+                    <li>
+                        <p>Phone number: 03047049871</p>
+                    </li>
+                    <li>
+                        <p>Address: Central Avenue, City, Country</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
     </main>
-    <footer></footer>
+    <footer>
+        <p>Copyright ©️ 2022 Vanessa B. , Aneal L. and Divyansh S.</p>
+    </footer>
     <script src="./app/js/classes-books.js"></script>
 </body>
 
