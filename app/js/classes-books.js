@@ -1,8 +1,15 @@
 /* eslint-disable max-classes-per-file */
 
+
 // ---------------------VARIABLES DECLARATION-----------------//
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
+
+const sections = document.querySelectorAll('section');
+const arrSections = Array.from(sections);
+
+const links = document.querySelectorAll('.nav-a');
+const arrLinks = Array.from(links);
 
 // --------------------CLASSES--------------------------------//
 class BookClass {
@@ -89,6 +96,19 @@ class InterfaceClass {
     localStorage.setItem('books', JSON.stringify(books));
     InterfaceClass.createBooksUl();
   }
+
+  //Method to show content dynamically
+  static changeContent = (index)=>{
+    for(let i=0; i< arrSections.length; i++){
+      if(index === i){
+          sections[i].classList.remove('hide');
+          links[i].style.color = '#8ecae6';
+      }else if(index !== i){
+          sections[i].classList.add('hide');
+          links[i].style.color = '#fff';
+      }
+    }
+  }
 }
 
 // -------------------EVENTS-----------------------------------//
@@ -98,6 +118,7 @@ addBtn.addEventListener('click', (e) => {
 
   // Call method to add a book
   InterfaceClass.addNewBook();
+  InterfaceClass.changeContent(0);
 });
 
 // Add eventListener to btnRemove
@@ -106,6 +127,15 @@ booksUl.addEventListener('click', (e) => {
     const { id } = e.target;
     InterfaceClass.removeBook(id);
   }
+});
+
+//Add an event listener to each tag a in nav-ul
+arrLinks.forEach((link, i)=>
+{
+   link.addEventListener( 'click', ()=>{
+    InterfaceClass.changeContent(i);
+   }
+   );
 });
 
 window.addEventListener('load', () => {

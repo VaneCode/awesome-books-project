@@ -15,10 +15,10 @@
             <h1>All awesome books</h1>
             <ul id="nav-ul">
                 <li>
-                    <a href="#books-list-section" class="nav-a" id="books">Books</a>
+                    <a href="#list-book-section" class="nav-a" id="books">Books</a>
                 </li>
                 <li>
-                    <a href="#new-book-section" id="add-book" class="nav-a">Add new book</a>
+                    <a href="#add-book-section" id="add-book" class="nav-a">Add new book</a>
                 </li>
                 <li>
                     <a href="#contact-section" class="nav-a">Contact</a>
@@ -28,6 +28,10 @@
     </header>
 
     <main>
+        <!--Date-->
+        <div class="div-container">
+            <small class="date"></small>
+        </div>
         <!--Section list books-->
         <section id="list-book-section">
             <div class="div-container">
@@ -36,9 +40,8 @@
                 </ul>
             </div>
         </section>
-        <hr>
         <!--Section to add books-->
-        <section id="add-book-section">
+        <section id="add-book-section" class="hide">
             <div class="div-container">
                 <h2>Add a new book</h2>
                 <form action="#" id="bookFrm">
