@@ -1,6 +1,5 @@
 /* eslint-disable max-classes-per-file */
 
-
 // ---------------------VARIABLES DECLARATION-----------------//
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
@@ -97,15 +96,15 @@ class InterfaceClass {
     InterfaceClass.createBooksUl();
   }
 
-  //Method to show content dynamically
-  static changeContent = (index)=>{
-    for(let i=0; i< arrSections.length; i++){
-      if(index === i){
-          sections[i].classList.remove('hide');
-          links[i].style.color = '#8ecae6';
-      }else if(index !== i){
-          sections[i].classList.add('hide');
-          links[i].style.color = '#fff';
+  // Method to show content dynamically
+  static changeContent = (index) => {
+    for (let i = 0; i < arrSections.length; i += 1) {
+      if (index === i) {
+        sections[i].classList.remove('hide');
+        links[i].style.color = '#8ecae6';
+      } else if (index !== i) {
+        sections[i].classList.add('hide');
+        links[i].style.color = '#fff';
       }
     }
   }
@@ -129,13 +128,11 @@ booksUl.addEventListener('click', (e) => {
   }
 });
 
-//Add an event listener to each tag a in nav-ul
-arrLinks.forEach((link, i)=>
-{
-   link.addEventListener( 'click', ()=>{
+// Add an event listener to each tag a in nav-ul
+arrLinks.forEach((link, i) => {
+  link.addEventListener('click', () => {
     InterfaceClass.changeContent(i);
-   }
-   );
+  });
 });
 
 window.addEventListener('load', () => {
@@ -149,7 +146,6 @@ window.addEventListener('load', () => {
   // Create booksUl
   InterfaceClass.createBooksUl();
 });
-
 
 // date format
 // date format
