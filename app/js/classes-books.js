@@ -4,6 +4,12 @@
 const booksUl = document.querySelector('#booksUl');
 const addBtn = document.querySelector('#addBtn');
 
+const sections = document.querySelectorAll('section');
+const arrSections = Array.from(sections);
+
+const links = document.querySelectorAll('.nav-a');
+const arrLinks = Array.from(links);
+
 // --------------------CLASSES--------------------------------//
 class BookClass {
   // Method to create a new book
@@ -89,6 +95,19 @@ class InterfaceClass {
     localStorage.setItem('books', JSON.stringify(books));
     InterfaceClass.createBooksUl();
   }
+
+  // Method to show content dynamically
+  static changeContent = (index) => {
+    for (let i = 0; i < arrSections.length; i += 1) {
+      if (index === i) {
+        sections[i].classList.remove('hide');
+        links[i].style.color = '#8ecae6';
+      } else if (index !== i) {
+        sections[i].classList.add('hide');
+        links[i].style.color = '#fff';
+      }
+    }
+  }
 }
 
 // -------------------EVENTS-----------------------------------//
@@ -98,6 +117,7 @@ addBtn.addEventListener('click', (e) => {
 
   // Call method to add a book
   InterfaceClass.addNewBook();
+  InterfaceClass.changeContent(0);
 });
 
 // Add eventListener to btnRemove
@@ -106,6 +126,13 @@ booksUl.addEventListener('click', (e) => {
     const { id } = e.target;
     InterfaceClass.removeBook(id);
   }
+});
+
+// Add an event listener to each tag a in nav-ul
+arrLinks.forEach((link, i) => {
+  link.addEventListener('click', () => {
+    InterfaceClass.changeContent(i);
+  });
 });
 
 window.addEventListener('load', () => {
@@ -119,3 +146,9 @@ window.addEventListener('load', () => {
   // Create booksUl
   InterfaceClass.createBooksUl();
 });
+
+// date format
+// date format
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const date = new Date();
+document.querySelector('.date').innerHTML = `${months[date.getMonth()]} ${date.getDate()}  ${date.getFullYear()}, ${date.getHours()}:${date.getMinutes()}`;

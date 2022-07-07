@@ -10,28 +10,42 @@
 </head>
 
 <body>
+    <!--Header-->
     <header>
         <nav>
-            <div>
-                <h1>All awesome books</h1>
-            </div>      
-        </nav>        
+            <p id="logo">Awesome books</p>
+            <ul class="style-none" id="nav-ul">
+                <li>
+                    <a href="#list-book-section" class="nav-a" id="books">Books</a>
+                </li>
+                <li>
+                    <a href="#add-book-section" id="add-book" class="nav-a">Add new book</a>
+                </li>
+                <li>
+                    <a href="#contact-section" class="nav-a">Contact</a>
+                </li>
+            </ul>
+        </nav>
     </header>
-
+    <!--Main-->
     <main>
+        <!--Date-->
+        <div id="div-date">
+            <small class="date"></small>
+        </div>
         <!--Section list books-->
         <section id="list-book-section">
             <div class="div-container">
-                <ul id="booksUl">
+                <h1>All awesome books</h1>
+                <ul class="style-none" id="booksUl">
 
                 </ul>
             </div>
         </section>
-        <hr>
         <!--Section to add books-->
-        <section id="add-book-section">
+        <section id="add-book-section" class="hide">
             <div class="div-container">
-                <h2>Add a new book</h2>
+                <h1>Add a new book</h1>
                 <form action="#" id="bookFrm">
                     <input type="text" id="bookTitle" placeholder="Title">
                     <input type="text" id="bookAuthor" placeholder="Author">
@@ -39,8 +53,32 @@
                 </form>
             </div>
         </section>
+
+        <!--Contact section-->
+        <section id="contact-section" class="hide">
+            <div class="div-container">
+                <h1>Contact information</h1>
+                <p>Do you have any questions or you just want to say Hello? You can reach out to us!</p>
+                <ul>
+                    <li>
+                        <p>E-mail: bookscollections@mail.com</p>
+                    </li>
+                    <li>
+                        <p>Phone number: 03047049871</p>
+                    </li>
+                    <li>
+                        <p>Address: Central Avenue, City, Country</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </main>
-    <footer></footer>
+    <!--Footer-->
+    <footer>
+        <div class="div-container">
+            <p>Copyright ©️ 2022 Vanessa B. and Aneal L.</p>
+        </div>
+    </footer>
     <script src="./app/js/classes-books.js"></script>
 </body>
 
