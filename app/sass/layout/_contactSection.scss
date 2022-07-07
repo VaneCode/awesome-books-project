@@ -1,13 +1,19 @@
 #contact-section .div-container {
-    width: 40vw;
-    margin: 0 auto;
+  width: 80vw;
+  margin: 0 auto;
 }
 
 h2 {
-    font-size: 1.5rem;
-    color: var(--dark-blue);
+  font-size: 1.5rem;
+  color: var(--dark-blue);
 }
 
-ul.contactSec {
-    list-style-type: square;
+
+p {
+  text-align: left;
+}
+
+.square-style {
+  list-style: square inside;
+  margin-left: 3rem;
 }
