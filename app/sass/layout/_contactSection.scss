@@ -12,7 +12,7 @@ p {
   text-align: left;
 }
 
-.square-style {
-  list-style: square inside;
-  margin-left: 3rem;
+#contact-section ul li {
+  display: list-item;
+  list-style-image: url(../images/books.png);
 }
